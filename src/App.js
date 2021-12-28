@@ -1,29 +1,45 @@
-import { useSelector } from 'react-redux';
+// import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Container from 'components/Container';
-import Section from 'components/Section';
-import ContactForm from 'components/ContactForm';
-import Filter from 'components/Filter';
-import ContactList from 'components/ContactList';
-import { getLoading } from './redux/contacts/contacts-selectors';
+import AppBar from 'components/AppBar/AppBar';
+import HomePage from 'views/HomePage';
+import RegisterPage from 'views/RegisterPage';
+import LoginPage from 'views/LoginPage';
+import ContactsPage from 'views/ContactsPage';
 import Loader from 'components/Loader';
 import './App.css';
 
-function App() {
-  const isLoadingContacts = useSelector(getLoading);
+// const HomePage = lazy(() =>
+//   import('./views/HomePage' /* webpackChunkName: "home-page" */),
+// );
 
+// const RegisterPage = lazy(() =>
+//   import('./views/RegisterPage' /* webpackChunkName: "register-page" */),
+// );
+
+// const LoginPage = lazy(() =>
+//   import('./views/LoginPage' /* webpackChunkName: "login-page" */),
+// );
+
+// const ContactsPage = lazy(() =>
+//   import('./views/ContactsPage' /* webpackChunkName: "contacts-page" */),
+// );
+
+function App() {
   return (
     <Container title=''>
-      <Section title='Phonebook'>
-        <ContactForm />
-      </Section>
+      <AppBar />
 
-      {isLoadingContacts && <Loader />}
-
-      <Section title='Contacts'>
-        <Filter />
-        <ContactList />
-      </Section>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/contacts' element={<ContactsPage />} />
+        </Routes>
+      </Suspense>
       <Toaster position='top-right' />
     </Container>
   );
