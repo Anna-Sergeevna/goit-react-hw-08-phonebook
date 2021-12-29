@@ -1,31 +1,26 @@
-// import { lazy, Suspense } from 'react';
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Container from 'components/Container';
 import AppBar from 'components/AppBar/AppBar';
-import HomePage from 'views/HomePage';
-import RegisterPage from 'views/RegisterPage';
-import LoginPage from 'views/LoginPage';
-import ContactsPage from 'views/ContactsPage';
 import Loader from 'components/Loader';
 import './App.css';
 
-// const HomePage = lazy(() =>
-//   import('./views/HomePage' /* webpackChunkName: "home-page" */),
-// );
+const HomePage = lazy(() =>
+  import('./views/HomePage' /* webpackChunkName: "home-page" */),
+);
 
-// const RegisterPage = lazy(() =>
-//   import('./views/RegisterPage' /* webpackChunkName: "register-page" */),
-// );
+const RegisterPage = lazy(() =>
+  import('./views/RegisterPage' /* webpackChunkName: "register-page" */),
+);
 
-// const LoginPage = lazy(() =>
-//   import('./views/LoginPage' /* webpackChunkName: "login-page" */),
-// );
+const LoginPage = lazy(() =>
+  import('./views/LoginPage' /* webpackChunkName: "login-page" */),
+);
 
-// const ContactsPage = lazy(() =>
-//   import('./views/ContactsPage' /* webpackChunkName: "contacts-page" */),
-// );
+const ContactsPage = lazy(() =>
+  import('./views/ContactsPage' /* webpackChunkName: "contacts-page" */),
+);
 
 function App() {
   return (
@@ -34,7 +29,7 @@ function App() {
 
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/*' element={<HomePage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/contacts' element={<ContactsPage />} />
