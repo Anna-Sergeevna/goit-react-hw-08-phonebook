@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Container from 'components/Container';
 import AppBar from 'components/AppBar/AppBar';
 import Loader from 'components/Loader';
+import { authOperations } from 'redux/auth';
 import './App.css';
 
 const HomePage = lazy(() =>
@@ -23,6 +26,12 @@ const ContactsPage = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <Container title=''>
       <AppBar />

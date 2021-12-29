@@ -1,4 +1,5 @@
 import React from 'react';
+import homePageBg from './homePageBg.png';
 
 const styles = {
   container: {
@@ -16,7 +17,8 @@ const styles = {
 
 const HomePage = () => (
   <div style={styles.container}>
-    <h1 style={styles.title}>Приветственная страница нашего сервиса </h1>
+    <h1 style={styles.title}>Your Phonebook</h1>
+    <img src={homePageBg} alt='Home Page' width='400' />
   </div>
 );
 
