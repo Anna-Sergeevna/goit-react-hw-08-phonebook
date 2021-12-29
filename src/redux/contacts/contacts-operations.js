@@ -32,9 +32,10 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async ({ name, phone }, { rejectWithValue }) => {
+  async ({ name, number }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/contacts', { name, phone });
+      const { data } = await axios.post('/contacts', { name, number });
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -43,11 +44,11 @@ export const addContact = createAsyncThunk(
 );
 
 // export const addContact =
-//   ({ name, phone }) =>
+//   ({ name, number }) =>
 //   async dispatch => {
 //     const contact = {
 //       name,
-//       phone,
+//       number,
 //     };
 
 //     dispatch(addContactRequst());

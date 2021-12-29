@@ -20,10 +20,10 @@ function ContactList() {
 
   return (
     <ul className={s.list}>
-      {contacts.map(({ id, name, phone }) => (
+      {contacts.map(({ id, name, number }) => (
         <li key={id} className={s.item}>
           <p className={s.name}>{name}:</p>
-          <p className={s.phone}>{phone}</p>
+          <p className={s.phone}>{number}</p>
 
           <button
             type='button'
