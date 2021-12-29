@@ -15,7 +15,7 @@ function ContactList() {
     );
 
   useEffect(() => {
-    dispatch(contactsOperations.fetchContact());
+    dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
 
   return (
