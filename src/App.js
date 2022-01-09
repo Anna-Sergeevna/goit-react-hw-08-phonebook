@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import Container from 'components/Container';
 import AppBar from 'components/AppBar/AppBar';
 import Loader from 'components/Loader';
+import PrivateRoute from 'components/PrivateRoute';
 import { authOperations } from 'redux/auth';
 import './App.css';
 
@@ -38,10 +39,17 @@ function App() {
 
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path='/*' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
-          <Route path='/contacts' element={<ContactsPage />} />
+          <Route
+            path='/contacts'
+            element={
+              <PrivateRoute redirectTo='/login'>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Suspense>
       <Toaster position='top-right' />
