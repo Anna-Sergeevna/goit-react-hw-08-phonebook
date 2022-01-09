@@ -7,7 +7,7 @@ const Loading = () => {
   return (
     <div className={s.loader}>
       <Loader
-        type='ThreeDots'
+        type='Rings'
         color='#00BFFF'
         height={100}
         width={100}
