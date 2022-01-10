@@ -42,7 +42,7 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <h1>Sing up</h1>
+      <h1>Sign up</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete='off'>
         <label style={styles.label}>
