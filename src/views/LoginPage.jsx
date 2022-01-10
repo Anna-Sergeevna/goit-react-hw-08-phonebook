@@ -2,14 +2,18 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
+import { TextField } from '@mui/material';
+import { Button } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+
 const styles = {
   form: {
-    width: 320,
+    width: 280,
+    marginTop: 15,
   },
   label: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
   },
 };
 
@@ -38,30 +42,39 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h1>Login</h1>
-
       <form onSubmit={handleSubmit} style={styles.form} autoComplete='off'>
         <label style={styles.label}>
-          Email
-          <input
+          <TextField
             type='email'
             name='email'
+            label='Email'
+            margin='normal'
+            size='normal'
             value={email}
             onChange={handleChange}
           />
         </label>
 
         <label style={styles.label}>
-          Password
-          <input
+          <TextField
             type='password'
             name='password'
+            label='Password'
+            margin='normal'
+            size='normal'
             value={password}
             onChange={handleChange}
           />
         </label>
 
-        <button type='submit'>Login</button>
+        <Button
+          variant='contained'
+          disabled={!email}
+          startIcon={<LoginIcon />}
+          type='submit'
+        >
+          Login
+        </Button>
       </form>
     </div>
   );

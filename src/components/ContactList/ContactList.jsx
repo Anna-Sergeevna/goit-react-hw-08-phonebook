@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { contactsOperations, contactsSelectors } from 'redux/contacts/index';
 import s from './ContactList.module.css';
 
@@ -25,13 +27,15 @@ function ContactList() {
           <p className={s.name}>{name}:</p>
           <p className={s.phone}>{number}</p>
 
-          <button
+          <Button
+            variant='contained'
+            size='small'
+            startIcon={<DeleteIcon />}
             type='button'
-            className={s.button}
             onClick={() => onDeleteContact(id)}
           >
             Delete
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

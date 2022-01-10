@@ -2,14 +2,18 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
 
+import { TextField } from '@mui/material';
+import { Button } from '@mui/material';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+
 const styles = {
   form: {
-    width: 320,
+    width: 280,
+    marginTop: 15,
   },
   label: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
   },
 };
 
@@ -42,35 +46,51 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <h1>Sign up</h1>
-
       <form onSubmit={handleSubmit} style={styles.form} autoComplete='off'>
         <label style={styles.label}>
-          Name
-          <input type='text' name='name' value={name} onChange={handleChange} />
+          <TextField
+            type='text'
+            name='name'
+            label='Name'
+            margin='normal'
+            size='normal'
+            value={name}
+            onChange={handleChange}
+          />
         </label>
 
         <label style={styles.label}>
-          Email
-          <input
+          <TextField
             type='email'
             name='email'
+            label='Email'
+            margin='normal'
+            size='normal'
             value={email}
             onChange={handleChange}
           />
         </label>
 
         <label style={styles.label}>
-          Password
-          <input
+          <TextField
             type='password'
             name='password'
+            label='Password'
+            margin='normal'
+            size='normal'
             value={password}
             onChange={handleChange}
           />
         </label>
 
-        <button type='submit'>Sign up</button>
+        <Button
+          variant='contained'
+          disabled={!name}
+          startIcon={<AppRegistrationIcon />}
+          type='submit'
+        >
+          Sign up
+        </Button>
       </form>
     </div>
   );

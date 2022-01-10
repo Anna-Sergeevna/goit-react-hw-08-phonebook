@@ -8,7 +8,7 @@ export default function AuthNav() {
   return (
     <nav>
       <NavLink to='/register' className={active}>
-        Sing up
+        Sign up
       </NavLink>
       <NavLink to='/login' className={active}>
         Login

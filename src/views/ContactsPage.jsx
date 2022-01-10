@@ -1,22 +1,16 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
-import Section from '../components/Section';
-import ContactForm from '../components/ContactForm';
-import Filter from '../components/Filter';
-import ContactList from '../components/ContactList';
-// import { getLoading } from './redux/contacts/contacts-selectors';
+import Section from 'components/Section';
+import ContactForm from 'components/ContactForm';
+import Filter from 'components/Filter';
+import ContactList from 'components/ContactList';
 
 const Contacts = () => (
-  // const isLoadingContacts = useSelector(getLoading);
-
   <>
-    <Section title='Phonebook'>
+    <Section title='Add contacts'>
       <ContactForm />
     </Section>
 
-    {/* {isLoadingContacts && <Loader />} */}
-
-    <Section title='Contacts'>
+    <Section title='Your contacts'>
       <Filter />
       <ContactList />
     </Section>
