@@ -70,7 +70,7 @@ export default function RegisterPage() {
           />
         </label>
 
-        <button type='submit'>Sing up</button>
+        <button type='submit'>Sign up</button>
       </form>
     </div>
   );
